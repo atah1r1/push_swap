@@ -6,14 +6,19 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:12:02 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/11 14:19:38 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/11 18:03:37 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int     main(void)
+int     main(int argc, char **argv)
 {
-    printf("amine");
+	int i = 1;
+	while (i < argc)
+	{
+    	printf("%s\n", argv[i]);
+		i++;
+	}
     return 0;
 }
