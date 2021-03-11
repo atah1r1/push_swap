@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/11 14:11:51 by atahiri          ###   ########.fr       */
+/*   Created: 2021/03/11 14:12:02 by atahiri           #+#    #+#             */
+/*   Updated: 2021/03/11 14:19:38 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#endif
+int     main(void)
+{
+    printf("amine");
+    return 0;
+}
