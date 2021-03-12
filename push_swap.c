@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:12:02 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/11 18:03:37 by atahiri          ###   ########.fr       */
+/*   Created: 2021/03/12 11:55:36 by mac               #+#    #+#             */
+/*   Updated: 2021/03/12 11:58:18 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-int     main(int argc, char **argv)
+int     main()
 {
-	int i = 1;
-	while (i < argc)
-	{
-    	printf("%s\n", argv[i]);
-		i++;
-	}
+    printf("salamoalikum");
     return 0;
 }

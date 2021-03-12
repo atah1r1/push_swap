@@ -3,26 +3,40 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
+#    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/03/11 14:29:42 by atahiri          ###   ########.fr        #
+#    Updated: 2021/03/12 11:54:12 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
-CC = gcc
-AR= ar
-FLAGS = -Wall -Werror -Wextra
-SRC = includes/push_swap.h checker/*.c
-all:$(NAME)
+NAME1=	checker
 
-$(NAME):
-	$(CC) $(FLAGS) -c $(SRC)
-	$(AR) rc $(NAME) *.o
-	$(CC) $(SRC) $(NAME)
+NAME2=	push_swap
+
+all:	$(NAME1) $(NAME2)
+
+SRC1=	checker.c
+
+SRC2=	push_swap.c
+
+OBJ1=	$(SRC1:.c=.o)
+
+OBJ2=	$(SRC2:.c=.o)
+
+$(NAME1):
+	gcc -Wall -Werror -Wextra -c $(SRC1) $(INCLUDES)
+	gcc -o $(NAME1) $(OBJ1)
+
+$(NAME2):
+	gcc -Wall -Werror -Wextra -c $(SRC2) $(INCLUDES)
+	gcc -o $(NAME2) $(OBJ2)
+
 clean:
-	rm -rf *.o
-fclean: clean
-	rm -rf $(NAME) && rm -rf includes/push_swap.h.gch
-re:fclean all
+	rm -f *.o
+
+fclean:	clean
+	rm -f $(NAME1)
+	rm -f $(NAME2)
+
+re:	fclean all
