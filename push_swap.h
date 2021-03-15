@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/14 15:18:58 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/15 11:55:17 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ typedef	struct	s_stack
 }				t_stack;
 
 
-t_stack			*stack(int size);
-
+t_stack			*n_stack(int capacity);
+int				is_empty(t_stack *stack);
+int				is_full(t_stack *stack);
+void			push(t_stack *stack, int item);
+int 			pop(t_stack *stack);
 
 int			ft_strlen(char *s);
 int			ft_error(void);
