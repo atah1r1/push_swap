@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   instructions_check.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 11:00:15 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/16 11:31:14 by atahiri          ###   ########.fr       */
+/*   Created: 2021/03/16 11:26:12 by atahiri           #+#    #+#             */
+/*   Updated: 2021/03/16 11:26:35 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     ft_strlen(char *s)
+int         instructions_check(char *inst)
 {
-    int i;
     
-    i = 0;
-    while (s[i])
-        i++;
-    return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/15 14:31:28 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:30:49 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 typedef	struct	s_stack 
 {
-    int			maxsize;
-    int			top;
-    int			*items;
+	int			maxsize;
+	int			top;
+	int			*items;
 }				t_stack;
 
 
@@ -37,4 +37,5 @@ int			ft_error(void);
 int			ft_atoi(const char *str);
 int			ft_isdigit(int c);
 int			check_args(int argc, char **argv);
+int			instructions_check(char *inst);
 #endif

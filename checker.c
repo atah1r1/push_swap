@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/15 14:31:43 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:32:14 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,25 @@ int		main(int argc, char **argv)
 	if (check_args(argc, argv))
 		ft_error();
 	read(0, instructions, 1024);
+	
 
 
 
 	// print stack a
 	i = - 1;
-    printf("\na | ");
-    while (++i <= a->top)
-        printf("%d ", a->items[i]);
-    printf("\n");
-	 
+    printf("a | ");
+	while (++i <= a->top)
+		printf("%d ", a->items[i]);
+	printf("\n");
+	// print stack b
+	i = - 1;
+	printf("b | ");
+	while (++i <= b->top)
+		printf("%d ", b->items[i]);
+
+
+	
+	printf("\n");
+	printf("%s", instructions);
 	return 0;
 }

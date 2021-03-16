@@ -6,13 +6,13 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 15:17:02 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/14 15:17:23 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:32:23 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     check_args(int argc, char **argv)
+int		check_args(int argc, char **argv)
 {
 	int i;
 	int	j;
