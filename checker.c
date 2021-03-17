@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/16 14:55:18 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:00:53 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int		main(int argc, char **argv)
 	{
 		if (instructions_check(parts[j]))
 			ft_error();
+		else
+			applicate_inst(a);
 		j++;
 	}
 
