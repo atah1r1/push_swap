@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/17 16:00:53 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/17 18:03:15 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ int		main(int argc, char **argv)
 		if (instructions_check(parts[j]))
 			ft_error();
 		else
-			applicate_inst(a);
+			applicate_inst(a, b);
 		j++;
 	}
 
 
 
 	// print stack a
-	i = - 1;
+	i = -1;
     printf("a | ");
 	while (++i <= a->top)
 		printf("%d ", a->items[i]);
 	printf("\n");
 	// print stack b
-	i = - 1;
+	i = -1;
 	printf("b | ");
 	while (++i <= b->top)
 		printf("%d ", b->items[i]);

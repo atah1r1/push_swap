@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/17 16:19:16 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/17 18:03:01 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,35 @@
 
 void	swapping_a(t_stack *a)
 {
-	// int	temp;
-	
-	// if (is_empty(a) || a->maxsize == 1)
-	// {
-	// 	printf("\n%d\n", a->items[a->top]);
-	// }
-	printf("%d\n", a->maxsize);
+	int	temp;
+
+	temp = a->items[a->top];
+	a->items[a->top] = a->items[a->top - 1];
+	a->items[a->top - 1] = temp;
 }
 
-void	applicate_inst(t_stack *a)
+void	swapping_b(t_stack *b)
+{
+	int	temp;
+
+	temp = b->items[b->top];
+	b->items[b->top] = b->items[b->top - 1];
+	b->items[b->top - 1] = temp;
+}
+
+void	swapping_a_b(t_stack *a, t_stack *b)
 {
 	swapping_a(a);
+	swapping_b(b);
+}
+
+void	push_a(t_stack *a, t_stack *b)
+{
+	push(a, b->items[b->top]);
+}
+
+void	applicate_inst(t_stack *a, t_stack *b)
+{
+	// logic here !!
+	push_a(a, b);
 }

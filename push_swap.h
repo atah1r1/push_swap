@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/17 16:01:26 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/17 18:03:56 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 
 //
-void	applicate_inst(t_stack *a);
+void	applicate_inst(t_stack *a, t_stack *b);
 //
 #endif
