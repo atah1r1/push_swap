@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/17 18:03:15 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/18 10:05:17 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,17 @@ int		main(int argc, char **argv)
 
 	// print stack a
 	i = -1;
-    printf("a | ");
 	while (++i <= a->top)
-		printf("%d ", a->items[i]);
-	printf("\n");
+		printf("%d\n", a->items[i]);
+	printf("--\na\n");
+	// printf("\n");
 	// print stack b
+	printf("************************\n");
 	i = -1;
-	printf("b | ");
 	while (++i <= b->top)
-		printf("%d ", b->items[i]);
+		printf("%d\n", b->items[i]);
+	printf("--\nb\n");
+
 
 
 	return 0;

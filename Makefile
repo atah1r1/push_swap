@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/03/17 15:56:13 by atahiri          ###   ########.fr        #
+#    Updated: 2021/03/18 09:15:25 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ OBJ1=	$(SRC1:.c=.o)
 OBJ2=	$(SRC2:.c=.o)
 
 $(NAME1):
-	gcc -Wall -Werror -Wextra -c $(SRC1) $(INCLUDES)
+	# gcc -Wall -Werror -Wextra -c $(SRC1) $(INCLUDES)
+	gcc -c $(SRC1) $(INCLUDES)
 	gcc -o $(NAME1) $(OBJ1)
 
 $(NAME2):
