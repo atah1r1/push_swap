@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 12:21:08 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/19 15:37:19 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ char		*ft_strjoin(char *s1, char *s2, int free_s1, int free_s2);
 
 //
 void	applicate_inst(t_stack *a, t_stack *b);
+int		exec_operations(char *inst);
 //
 #endif

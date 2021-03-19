@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/03/19 12:24:36 by atahiri          ###   ########.fr        #
+#    Updated: 2021/03/19 15:37:28 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC1=	checker.c \
 		ft_strncmp.c \
 		applicate_inst.c \
 		ft_gnl.c\
-		ft_strjoin.c
+		ft_strjoin.c\
+		exec_operations.c
 
 SRC2=	push_swap.c
 

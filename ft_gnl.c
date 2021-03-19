@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:06:24 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 12:19:14 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/19 15:30:20 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_gnl(int fd, char **line)
 	char	*buffer;
 	int		n_bytes;
 
-	if (!line || !(buffer = (char *)malloc(2)) \
+	if (!line || !(buffer = (char *)malloc(2))
 	|| !(*line = (char *)malloc(1)))
 		return (-1);
 	(*line)[0] = '\0';
