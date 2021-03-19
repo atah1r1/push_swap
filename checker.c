@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 15:34:01 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/19 19:21:26 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int argc, char **argv)
 	if (!(i))
 		ft_error();
 	a = n_stack(argc - 1);
-	b = n_stack(0);
+	b = n_stack(argc - 1);
 	if (check_args(argc, argv))
 		ft_error();
 	i = argc - 1;
@@ -41,15 +41,15 @@ int		main(int argc, char **argv)
 			ret = 0;
 		else if (instructions_check(line))
 			ft_error();
-		exec_operations(line);
+		exec_operations(line, a, b);
 		printf("STACK A ---> ");
 		i = 0;
 		while (i <= a->top)
-			printf("%i ", a->items[i++]);
+			printf("%d ", a->items[i++]);
 		printf("\nSTACK B ---> ");
 		i = 0;
 		while (i <= b->top)
-			printf("%i ", b->items[i++]);
+			printf("%d ", b->items[i++]);
 		printf("\n");
 	}
 

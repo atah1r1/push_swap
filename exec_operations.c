@@ -6,18 +6,18 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 15:34:15 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 15:36:58 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/19 19:28:36 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		exec_operations(char *inst)
+int		exec_operations(char *inst, t_stack *a, t_stack *b)
 {
 	if (!ft_strncmp(inst, "sa", 3))
-		printf("swapping a");
+		swapping(a);
 	else if (!ft_strncmp(inst, "sb", 3))
-		printf("swapping b");
+		swapping(b);
 	else if (!ft_strncmp(inst, "ss", 4))
 		printf("swapping a and b");
 	else if (!ft_strncmp(inst, "pa", 3))
