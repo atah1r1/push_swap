@@ -6,34 +6,34 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/18 10:29:06 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/19 11:30:45 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swapping_a(t_stack *a)
+void	swapping(t_stack *stack)
 {
 	int	temp;
 
-	temp = a->items[a->top];
-	a->items[a->top] = a->items[a->top - 1];
-	a->items[a->top - 1] = temp;
+	temp = stack->items[stack->top];
+	stack->items[stack->top] = stack->items[stack->top - 1];
+	stack->items[stack->top - 1] = temp;
 }
 
-void	swapping_b(t_stack *b)
-{
-	int	temp;
+// void	swapping_b(t_stack *b)
+// {
+// 	int	temp;
 
-	temp = b->items[b->top];
-	b->items[b->top] = b->items[b->top - 1];
-	b->items[b->top - 1] = temp;
-}
+// 	temp = b->items[b->top];
+// 	b->items[b->top] = b->items[b->top - 1];
+// 	b->items[b->top - 1] = temp;
+// }
 
 void	swapping_a_b(t_stack *a, t_stack *b)
 {
-	swapping_a(a);
-	swapping_b(b);
+	swapping(a);
+	swapping(b);
 }
 
 void	push_a(t_stack *a, t_stack *b)
@@ -68,5 +68,6 @@ void	reverse_rotate_a(t_stack *a)
 void	applicate_inst(t_stack *a, t_stack *b)
 {
 	// logic here !!
-	reverse_rotate_a(a);
+	// reverse_rotate_a(a);
+	// swapping(a);
 }

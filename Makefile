@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/03/18 09:15:25 by atahiri          ###   ########.fr        #
+#    Updated: 2021/03/19 12:24:36 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,20 @@ NAME2=	push_swap
 
 all:	$(NAME1) $(NAME2)
 
-SRC1=	checker.c ft_error.c ft_strlen.c ft_atoi.c ft_isdigit.c check_args.c stack.c duplicate_element.c instructions_check.c ft_split.c ft_strncmp.c applicate_inst.c
+SRC1=	checker.c \
+		ft_error.c \
+		ft_strlen.c \
+		ft_atoi.c \
+		ft_isdigit.c \
+		check_args.c \
+		stack.c \
+		duplicate_element.c \
+		instructions_check.c \
+		ft_split.c \
+		ft_strncmp.c \
+		applicate_inst.c \
+		ft_gnl.c\
+		ft_strjoin.c
 
 SRC2=	push_swap.c
 
@@ -26,8 +39,8 @@ OBJ2=	$(SRC2:.c=.o)
 
 $(NAME1):
 	# gcc -Wall -Werror -Wextra -c $(SRC1) $(INCLUDES)
-	gcc -c $(SRC1) $(INCLUDES)
-	gcc -o $(NAME1) $(OBJ1)
+	gcc -c $(SRC1) $(INCLUDES) -g
+	gcc -o $(NAME1) $(OBJ1) -g
 
 $(NAME2):
 	gcc -Wall -Werror -Wextra -c $(SRC2) $(INCLUDES)
