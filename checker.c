@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 19:21:26 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/21 15:15:40 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		main(int argc, char **argv)
 	line = NULL;
 	while (ret > 0)
 	{
-		ret = ft_gnl(0, &line);
+		ret = ft_gnl(&line);
 		if (line[0] == '\0')
 			ret = 0;
 		else if (instructions_check(line))

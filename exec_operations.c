@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 15:34:15 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 19:28:36 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/21 14:50:35 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		exec_operations(char *inst, t_stack *a, t_stack *b)
 	else if (!ft_strncmp(inst, "sb", 3))
 		swapping(b);
 	else if (!ft_strncmp(inst, "ss", 4))
-		printf("swapping a and b");
+		swapping_a_b(a, b);
 	else if (!ft_strncmp(inst, "pa", 3))
 		printf("push a");
 	else if (!ft_strncmp(inst, "pb", 3))

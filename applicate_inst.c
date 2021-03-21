@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 19:29:38 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/21 15:00:45 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 void	swapping(t_stack *stack)
 {
 	int	temp;
-
-	temp = stack->items[stack->top];
-	stack->items[stack->top] = stack->items[stack->top - 1];
-	stack->items[stack->top - 1] = temp;
+	if (!is_empty(stack))
+	{
+		temp = stack->items[stack->top];
+		stack->items[stack->top] = stack->items[stack->top - 1];
+		stack->items[stack->top - 1] = temp;
+	}
 }
 
 void	swapping_a_b(t_stack *a, t_stack *b)

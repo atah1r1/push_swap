@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/19 19:22:06 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/21 15:17:05 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ int			check_args(int argc, char **argv);
 int			instructions_check(char *inst);
 char		**ft_split(const char *ss, char c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			ft_gnl(int fd, char **line);
-char		*ft_strjoin(char *s1, char *s2, int free_s1, int free_s2);
+int			ft_gnl(char **line);
+char	*ft_strjoin(char *s, char c);
 
 
 //
 void	applicate_inst(t_stack *a, t_stack *b);
 int		exec_operations(char *inst, t_stack *a, t_stack *b);
 void	swapping(t_stack *stack);
+void	swapping_a_b(t_stack *a, t_stack *b);
 //
 #endif
