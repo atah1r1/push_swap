@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 15:34:15 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/22 13:31:14 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/23 13:28:47 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		exec_operations(char *inst, t_stack *a, t_stack *b)
 	else if (!ft_strncmp(inst, "pb", 3))
 		push_b(a, b);
 	else if (!ft_strncmp(inst, "ra", 3))
-		return (0);
+		rotate_a(a);
 	else if (!ft_strncmp(inst, "rb", 3))
 		return (0);
 	else if (!ft_strncmp(inst, "rr", 3))
