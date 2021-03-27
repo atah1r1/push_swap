@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/23 14:19:43 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/27 14:33:16 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ void rotate_stack(t_stack *stack)
 {
     int i;
     int tmp[stack->top];
-    int top_item;
+    int top;
     int len;
 
     len = stack->top;
-    top_item = pop(stack);
+    top = pop(stack);
     i = -1;
     while (!is_empty(stack))
         tmp[++i] = pop(stack);
-    push(stack, top_item);
+    push(stack, top);
     while (--len >= 0)
         push(stack, tmp[len]);
 }
