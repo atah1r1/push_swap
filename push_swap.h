@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/23 14:20:09 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/28 12:20:22 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ void	swapping_a_b(t_stack *a, t_stack *b);
 void	push_a(t_stack *a, t_stack *b);
 void	push_b(t_stack *a, t_stack *b);
 void	rotate_stack(t_stack *stack);
+void	reverse_rotate_stack(t_stack *stack);
+void	rr_stack(t_stack *a, t_stack *b);
+void	rrr_stack(t_stack *a, t_stack *b);
 //
 #endif

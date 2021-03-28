@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/27 14:33:16 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/28 12:49:49 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,44 @@ void	push_b(t_stack *a, t_stack *b)
 
 void rotate_stack(t_stack *stack)
 {
-    int i;
-    int tmp[stack->top];
+    int temp[stack->top];
     int top;
     int len;
+    int i;
 
     len = stack->top;
     top = pop(stack);
     i = -1;
     while (!is_empty(stack))
-        tmp[++i] = pop(stack);
+        temp[++i] = pop(stack);
     push(stack, top);
     while (--len >= 0)
-        push(stack, tmp[len]);
+        push(stack, temp[len]);
 }
 
-void	applicate_inst(t_stack *a, t_stack *b)
+void	rr_stack(t_stack *a, t_stack *b)
 {
-	// logic here !!
-	// reverse_rotate_a(a);
-	// swapping(a);
+	rotate_stack(a);
+	rotate_stack(b);
+}
+
+void	reverse_rotate_stack(t_stack *stack)
+{
+	int temp;
+	int i;
+	
+	temp = stack->items[stack->top];
+	i = stack->maxsize - 1;
+	while (i > 0)
+	{
+		stack->items[i] = stack->items[i - 1];
+		i--;
+	}
+    stack->items[0] = temp;
+}
+
+void	rrr_stack(t_stack *a, t_stack *b)
+{
+	reverse_rotate_stack(a);
+	reverse_rotate_stack(b);
 }

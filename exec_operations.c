@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 15:34:15 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/26 22:14:04 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/28 12:21:10 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int		exec_operations(char *inst, t_stack *a, t_stack *b)
 	else if (!ft_strncmp(inst, "rb", 3))
 		rotate_stack(b);
 	else if (!ft_strncmp(inst, "rr", 3))
-		return (0);		
+		rr_stack(a, b);
 	else if (!ft_strncmp(inst, "rra", 4))
-		return (0);
+		reverse_rotate_stack(a);
 	else if (!ft_strncmp(inst, "rrb", 4))
-		return (0);
+		reverse_rotate_stack(b);
 	else if (!ft_strncmp(inst, "rrr", 4))
-		return (0);
+		rrr_stack(a, b);
 	return (-1);
 }
