@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 14:39:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/14 14:51:53 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/29 12:54:18 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	int		result;
+	int			i;
+	int			sign;
+	long		result;
 
 	i = 0;
 	sign = 1;
