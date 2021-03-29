@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/23 14:17:04 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/29 11:29:21 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int		main(int argc, char **argv)
 		printf("\n");
 		// printf("%d\n", a->items[a->maxsize - a->top - 1]);
 	}
-
+	check_stacks(a, b);
 	return 0;
 }
