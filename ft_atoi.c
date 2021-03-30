@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 14:39:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/29 12:54:18 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/30 18:26:37 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int		ft_atoi(const char *str)
 		result = result * 10 + str[i] - '0';
 		i++;
 	}
+	if (result > INT32_MAX || result < INT32_MIN)
+		ft_error();
 	return (result * sign);
 }
