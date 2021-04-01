@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef	struct	s_stack 
+typedef	struct	s_stack
 {
 	int			maxsize;
 	int			top;
@@ -41,20 +41,20 @@ int			instructions_check(char *inst);
 char		**ft_split(const char *ss, char c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_gnl(char **line);
-char	*ft_strjoin(char *s, char c);
+char		*ft_strjoin(char *s, char c);
 
 
 //
-void	applicate_inst(t_stack *a, t_stack *b);
-int		exec_operations(char *inst, t_stack *a, t_stack *b);
-void	swapping(t_stack *stack);
-void	swapping_a_b(t_stack *a, t_stack *b);
-void	push_a(t_stack *a, t_stack *b);
-void	push_b(t_stack *a, t_stack *b);
-void	rotate_stack(t_stack *stack);
-void	reverse_rotate_stack(t_stack *stack);
-void	rr_stack(t_stack *a, t_stack *b);
-void	rrr_stack(t_stack *a, t_stack *b);
-void	check_stacks(t_stack *a, t_stack *b);
+void		applicate_inst(t_stack *a, t_stack *b);
+int			exec_operations(char *inst, t_stack *a, t_stack *b);
+void		swapping(t_stack *stack);
+void		swapping_a_b(t_stack *a, t_stack *b);
+void		push_a(t_stack *a, t_stack *b);
+void		push_b(t_stack *a, t_stack *b);
+void		rotate_stack(t_stack *stack);
+void		reverse_rotate_stack(t_stack *stack);
+void		rr_stack(t_stack *a, t_stack *b);
+void		rrr_stack(t_stack *a, t_stack *b);
+void		check_stacks(t_stack *a, t_stack *b);
 //
 #endif
