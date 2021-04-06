@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/04/01 14:20:05 by atahiri          ###   ########.fr        #
+#    Updated: 2021/04/06 17:50:23 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ SRC1=	checker.c \
 		exec_operations.c\
 		check_stack.c
 
-SRC2=	push_swap.c
+SRC2=	push_swap.c\
+		ft_gnl.c\
+		ft_strjoin.c\
 
 OBJ1=	$(SRC1:.c=.o)
 
