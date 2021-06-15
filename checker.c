@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/29 11:29:21 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/06/15 01:03:59 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int		main(int argc, char **argv)
 	int		ret;
 
 	i = argc - 1;
+	if (argc == 1)
+		return 0;
 	if (!(i))
 		ft_error();
 	a = n_stack(argc - 1);
@@ -34,7 +36,7 @@ int		main(int argc, char **argv)
 		ft_error();
 	ret = 1;
 	line = NULL;
-	while (ret > 0)
+	while (ret > 0 || argc == 1)
 	{
 		ret = ft_gnl(&line);
 		if (line[0] == '\0')

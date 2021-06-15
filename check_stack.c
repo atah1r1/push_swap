@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 11:18:14 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/29 11:31:37 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/06/15 00:53:40 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_stacks(t_stack *a, t_stack *b)
 	i = 0;
 	while (i < a->top - 1)
 	{
-		if (a->items[i] > a->items[i + 1])
+		if (a->items[i] < a->items[i + 1])
 		{
 			write(1, "KO\n", 3);
 			return ;
