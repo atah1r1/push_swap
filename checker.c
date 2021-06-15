@@ -6,7 +6,11 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:22 by atahiri           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/06/15 01:03:59 by atahiri          ###   ########.fr       */
+=======
+/*   Updated: 2021/03/31 13:41:41 by atahiri          ###   ########.fr       */
+>>>>>>> 62c2c398a1328c4141c9b5d688f29e8660bd1b5c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +48,7 @@ int		main(int argc, char **argv)
 		else if (instructions_check(line))
 			ft_error();
 		exec_operations(line, a, b);
+		//--------------------------------------
 		printf("STACK A ---> ");
 		i = 0;
 		while (i <= a->top)
@@ -53,6 +58,7 @@ int		main(int argc, char **argv)
 		while (i <= b->top)
 			printf("%d ", b->items[i++]);
 		printf("\n");
+		//--------------------------------------
 		// printf("%d\n", a->items[a->maxsize - a->top - 1]);
 	}
 	check_stacks(a, b);

@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/28 12:49:49 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/03/31 15:44:51 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	swapping(t_stack *stack)
 {
 	int	temp;
+
 	if (!is_empty(stack))
 	{
 		temp = stack->items[stack->top];
@@ -43,12 +44,12 @@ void	push_b(t_stack *a, t_stack *b)
 	pop(a);
 }
 
-void rotate_stack(t_stack *stack)
+void	rotate_stack(t_stack *stack)
 {
-    int temp[stack->top];
-    int top;
-    int len;
-    int i;
+	int	temp[stack->top];
+	int	top;
+	int	len;
+	int	i;
 
     len = stack->top;
     top = pop(stack);
