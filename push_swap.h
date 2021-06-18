@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/03/29 11:29:16 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/06/18 02:13:21 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ void		reverse_rotate_stack(t_stack *stack);
 void		rr_stack(t_stack *a, t_stack *b);
 void		rrr_stack(t_stack *a, t_stack *b);
 void		check_stacks(t_stack *a, t_stack *b);
+
+int			is_sorted(t_stack *a, t_stack *b);
 //
 #endif

@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/04/06 17:50:23 by atahiri          ###   ########.fr        #
+#    Updated: 2021/06/18 02:32:27 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,25 @@ SRC1=	checker.c \
 		ft_gnl.c\
 		ft_strjoin.c\
 		exec_operations.c\
-		check_stack.c
+		check_stack.c\
 
 SRC2=	push_swap.c\
 		ft_gnl.c\
 		ft_strjoin.c\
+		is_sorted.c\
+		ft_error.c \
+		ft_strlen.c \
+		ft_atoi.c \
+		ft_isdigit.c \
+		check_args.c \
+		stack.c \
+		duplicate_element.c \
+		instructions_check.c \
+		ft_split.c \
+		ft_strncmp.c \
+		applicate_inst.c \
+		exec_operations.c\
+		check_stack.c\
 
 OBJ1=	$(SRC1:.c=.o)
 
