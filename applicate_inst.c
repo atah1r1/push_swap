@@ -6,13 +6,13 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/06/18 02:19:57 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/06/29 18:07:44 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swapping(t_stack *stack)
+void	swapping(t_stack *stack, int print, char stack_type)
 {
 	int	temp;
 
@@ -22,29 +22,39 @@ void	swapping(t_stack *stack)
 		stack->items[stack->top] = stack->items[stack->top - 1];
 		stack->items[stack->top - 1] = temp;
 	}
+	if (print == 1 && stack_type == 'a')
+		printf("sa\n");
+	if (print == 1 && stack_type == 'b')
+		printf("sb\n");
 }
 
-void	swapping_a_b(t_stack *a, t_stack *b)
+void	swapping_a_b(t_stack *a, t_stack *b, int print)
 {
-	swapping(a);
-	swapping(b);
+	swapping(a, 0, 'a');
+	swapping(b, 0, 'b');
+	if (print == 1)
+		printf("ss\n");
 }
 
-void	push_a(t_stack *a, t_stack *b)
+void	push_a(t_stack *a, t_stack *b, int print)
 {
 	if (!is_empty(b))
 		push(a, b->items[b->top]);
 	pop(b);
+	if (print == 1)
+		printf("pa\n");
 }
 
-void	push_b(t_stack *a, t_stack *b)
+void	push_b(t_stack *a, t_stack *b, int print)
 {
 	if (!is_empty(a))
 		push(b, a->items[a->top]);
 	pop(a);
+	if (print == 1)
+		printf("pb\n");
 }
 
-void	rotate_stack(t_stack *stack)
+void	rotate_stack(t_stack *stack, int print, char stack_type)
 {
 	int	temp[stack->top];
 	int	top;
@@ -59,15 +69,21 @@ void	rotate_stack(t_stack *stack)
     push(stack, top);
     while (--len >= 0)
         push(stack, temp[len]);
+	if (print == 1 && stack_type == 'a')
+		printf("ra\n");
+	if (print == 1 && stack_type == 'b')
+		printf("rb\n");
 }
 
-void	rr_stack(t_stack *a, t_stack *b)
+void	rr_stack(t_stack *a, t_stack *b, int print)
 {
-	rotate_stack(a);
-	rotate_stack(b);
+	rotate_stack(a, 0, 'a');
+	rotate_stack(b, 0, 'b');
+	if (print == 1)
+		printf("rr\n");
 }
 
-void	reverse_rotate_stack(t_stack *stack)
+void	reverse_rotate_stack(t_stack *stack, int print, char stack_type)
 {
 	int temp;
 	int i;
@@ -80,10 +96,16 @@ void	reverse_rotate_stack(t_stack *stack)
 		i--;
 	}
     stack->items[0] = temp;
+	if (print == 1 && stack_type == 'a')
+		printf("rra\n");
+	if (print == 1 && stack_type == 'b')
+		printf("rrb\n");
 }
 
-void	rrr_stack(t_stack *a, t_stack *b)
+void	rrr_stack(t_stack *a, t_stack *b, int print)
 {
-	reverse_rotate_stack(a);
-	reverse_rotate_stack(b);
+	reverse_rotate_stack(a, 0, 'a');
+	reverse_rotate_stack(b, 0, 'b');
+	if (print == 1)
+		printf("rrr\n");
 }
