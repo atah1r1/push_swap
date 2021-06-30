@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/06/29 18:13:56 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/06/30 12:33:55 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,29 @@ int	*sort_array(int *array, int len)
 void	three_numbers(t_stack *a)
 {
 	int	*sorted;
-	int	bigger;
-	int	smaller;
+	int	big_nb;
+	int	small_nb;
 
 	sorted = sort_array(a->items, a->top);
-	smaller = sorted[0];
-	bigger = sorted[2];
-	if (a->items[0] == bigger && a->items[1] == smaller)
+	small_nb = sorted[0];
+	big_nb = sorted[2];
+	// printf("small == %d\n big == %d\n", small_nb, big_nb);
+	if (a->items[0] == big_nb && a->items[1] == small_nb)
 		swapping(a, 1, 'a');
-	else if (a->items[2] == bigger && a->items[1] == smaller)
-		rotate_stack(a, 1, 'a');
-	else if (a->items[2] == bigger && a->items[0] == smaller)
+	else if (a->items[2] == big_nb && a->items[0] == small_nb)
 	{
 		swapping(a, 1, 'a');
 		reverse_rotate_stack(a, 1, 'a');
 	}
-	else if (a->items[1] == bigger && a->items[2] == smaller)
+	else if (a->items[2] == big_nb && a->items[1] == small_nb)
+		rotate_stack(a, 1, 'a');
+	else if (a->items[2] == small_nb && a->items[1] == big_nb)
 	{
 		swapping(a, 1, 'a');
 		rotate_stack(a, 1, 'a');
 	}
-	else if (a->items[1] == bigger && a->items[0] == smaller)
-	{
+	else if (a->items[0] == small_nb && a->items[1] == big_nb)
 		reverse_rotate_stack(a, 1, 'a');
-	}
 	free(sorted);
 }
 
