@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/06/30 12:33:55 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/01 20:44:46 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	three_numbers(t_stack *a)
 	sorted = sort_array(a->items, a->top);
 	small_nb = sorted[0];
 	big_nb = sorted[2];
-	// printf("small == %d\n big == %d\n", small_nb, big_nb);
 	if (a->items[0] == big_nb && a->items[1] == small_nb)
 		swapping(a, 1, 'a');
 	else if (a->items[2] == big_nb && a->items[0] == small_nb)
@@ -80,6 +79,68 @@ void	three_numbers(t_stack *a)
 	free(sorted);
 }
 
+int		get_median(t_stack *a)
+{
+	int		median = 0;
+	int		*sorted;
+
+	sorted = sort_array(a->items, a->top);
+	if (a->maxsize == 5)
+	{
+		median = sorted[2];
+	}
+	else if (a->maxsize == 4)
+	{
+		median = sorted[1];
+	}
+	free(sorted);
+	return (median);
+}
+
+void	five_numbers(t_stack *a, t_stack *b)
+{
+	(void)b;
+	int	median;
+	int	i;
+	/// before changes
+	i = 0;
+	printf("STACK A ---> ");
+	while (i <= a->top)
+		printf("%d ", a->items[i++]);
+	printf("\nSTACK B ---> ");
+	i = 0;
+	while (i <= b->top)
+		printf("%d ", b->items[i++]);
+	printf("\n");
+	//////////////////////
+	median = get_median(a);
+	i = -1;
+	while (++i <= a->top)
+	{
+		if (a->items[i] < median)
+		{
+			push_b(a, b, 1);
+		}
+	}
+	three_numbers(a);
+	// if (b->items[0] > b->items[1])
+	// {
+	// 	swapping(b, 1, 'b');
+	// }
+	push_a(a, b, 1);
+	// push_a(a, b, 1);
+	/// after changes
+	i = 0;
+	printf("STACK A ---> ");
+	while (i <= a->top)
+		printf("%d ", a->items[i++]);
+	printf("\nSTACK B ---> ");
+	i = 0;
+	while (i <= b->top)
+		printf("%d ", b->items[i++]);
+	printf("\n");
+}
+
 void	sorting(t_stack *a, t_stack *b, int argc)
 {
 	(void)b;
@@ -91,8 +152,14 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 		{
 			swapping(a, 1, 'a');
 		}
-		else 
+		else
+		{
 			three_numbers(a);
+		}
+	}
+	else
+	{
+		five_numbers(a, b);
 	}
 }
 
