@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/01 20:44:46 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/02 12:56:54 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,11 @@ int		get_median(t_stack *a)
 
 void	five_numbers(t_stack *a, t_stack *b)
 {
-	(void)b;
 	int	median;
 	int	i;
 	/// before changes
+
+	printf("TOP OF A === %d\n", a->items[a->top]);
 	i = 0;
 	printf("STACK A ---> ");
 	while (i <= a->top)
@@ -112,24 +113,25 @@ void	five_numbers(t_stack *a, t_stack *b)
 	while (i <= b->top)
 		printf("%d ", b->items[i++]);
 	printf("\n");
-	//////////////////////
+	// //////////////////////
 	median = get_median(a);
 	i = -1;
-	while (++i <= a->top)
+	while (++i < a->maxsize)
 	{
+		printf("TOP === %d\n", a->items[a->top]);
 		if (a->items[i] < median)
 		{
 			push_b(a, b, 1);
+			// push_b(a, b, 1);
 		}
 	}
 	three_numbers(a);
-	// if (b->items[0] > b->items[1])
-	// {
-	// 	swapping(b, 1, 'b');
-	// }
-	push_a(a, b, 1);
+	if (b->items[0] < b->items[1])
+	{
+		swapping(b, 1, 'b');
+	}
 	// push_a(a, b, 1);
-	/// after changes
+	// after changes
 	i = 0;
 	printf("STACK A ---> ");
 	while (i <= a->top)
@@ -139,6 +141,9 @@ void	five_numbers(t_stack *a, t_stack *b)
 	while (i <= b->top)
 		printf("%d ", b->items[i++]);
 	printf("\n");
+
+
+	//////////////
 }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
