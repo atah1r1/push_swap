@@ -6,11 +6,26 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/03 14:40:54 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/04 12:04:33 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_stacks(t_stack *a, t_stack *b)
+{
+	int i;
+
+	i = 0;
+	printf("STACK A ---> ");
+	while (i <= a->top)
+		printf("%d ", a->items[i++]);
+	printf("\nSTACK B ---> ");
+	i = 0;
+	while (i <= b->top)
+		printf("%d ", b->items[i++]);
+	printf("\n");
+}
 
 int	*copy(int *array, int len)
 {
@@ -79,20 +94,26 @@ void	three_numbers(t_stack *a)
 	free(sorted);
 }
 
+
+
 int		get_median(t_stack *a)
 {
 	int		median = 0;
 	int		*sorted;
 
 	sorted = sort_array(a->items, a->top);
-	if (a->maxsize == 5)
-	{
-		median = sorted[2];
-	}
-	else if (a->maxsize == 4)
-	{
+	// if (a->maxsize == 5)
+	// {
+	// 	median = sorted[2];
+	// }
+	// else if (a->maxsize == 4)
+	// {
+	// 	median = sorted[1];
+	// }
+	if (a->maxsize == 4)
+		median = sorted[0];
+	else
 		median = sorted[1];
-	}
 	free(sorted);
 	return (median);
 }
@@ -101,72 +122,28 @@ void	five_numbers(t_stack *a, t_stack *b)
 {
 	int	median;
 	int	i;
-	/// before changes
 
-	// printf("TOP OF A === %d\n", a->items[a->top]);
-	// i = 0;
-	// printf("STACK A ---> ");
-	// while (i <= a->top)
-	// 	printf("%d ", a->items[i++]);
-	// printf("\nSTACK B ---> ");
-	// i = 0;
-	// while (i <= b->top)
-	// 	printf("%d ", b->items[i++]);
-	// printf("\n");
-	// //////////////////////
-	median = get_median(a);
 	i = -1;
-	printf("MEDIAN === %d\n", median);
+	median = get_median(a);
+	// printf("TOP === %d\n", a->items[a->top]);
+	// printf("MEDIANE === %d\n", median);
 	while (++i < a->maxsize)
 	{
-		printf("top === %d\n", a->items[a->top]);
 		if (a->items[a->top] <= median)
-		{
-			push_b(a, a, 1);
-		}
+			push_b(a, b, 1);
 		reverse_rotate_stack(a, 1, 'a');
 	}
-	// three_numbers(a);
-	// if (b->items[0] < b->items[1])
-	// {
-	// 	swapping(b, 1, 'b');
-	// }
-	// push_a(a, b, 1);
-	// after changes
-	// i = 0;
-	// printf("STACK A ---> ");
-	// while (i <= a->top)
-	// 	printf("%d ", a->items[i++]);
-	// printf("\nSTACK B ---> ");
-	// i = 0;
-	// while (i <= b->top)
-	// 	printf("%d ", b->items[i++]);
-	// printf("\n");
-
-
-	//////////////
-
 	three_numbers(a);
-
-	i = 0;
-	printf("STACK A ---> ");
-	while (i <= a->top)
-		printf("%d ", a->items[i++]);
-	printf("\nSTACK B ---> ");
-	i = 0;
-	while (i <= b->top)
-		printf("%d ", b->items[i++]);
-	printf("\n");
-	
-	// if (b->top == 0)
-	// 	push_a(a, b, 1);
-	// else
-	// {
-	// 	if (b->items[0] > b->items[1])
-	// 		swapping(b, 1, 'b');
-	// 	while (b->top > -1)
-	// 		push_a(a, b, 1);
-	// }
+	if (b->top == 0)
+		push_a(a, b, 1);
+	else
+	{
+		if (b->items[0] > b->items[1])
+			swapping(b, 1, 'b');
+		while (b->top > -1)
+			push_a(a, b, 1);
+	}
+	// print_stacks(a, b);
 }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
@@ -188,6 +165,7 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 	else
 	{
 		five_numbers(a, b);
+		// print_stacks(a, b);
 	}
 }
 
