@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/04 12:04:33 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/05 19:55:09 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,18 +102,14 @@ int		get_median(t_stack *a)
 	int		*sorted;
 
 	sorted = sort_array(a->items, a->top);
-	// if (a->maxsize == 5)
-	// {
-	// 	median = sorted[2];
-	// }
-	// else if (a->maxsize == 4)
-	// {
-	// 	median = sorted[1];
-	// }
-	if (a->maxsize == 4)
-		median = sorted[0];
-	else
+	if (a->maxsize == 5)
+	{
+		median = sorted[2];
+	}
+	else if (a->maxsize == 4)
+	{
 		median = sorted[1];
+	}
 	free(sorted);
 	return (median);
 }
@@ -123,27 +119,21 @@ void	five_numbers(t_stack *a, t_stack *b)
 	int	median;
 	int	i;
 
+
 	i = -1;
 	median = get_median(a);
 	// printf("TOP === %d\n", a->items[a->top]);
-	// printf("MEDIANE === %d\n", median);
+	printf("MEDIANE === %d\n", median);
 	while (++i < a->maxsize)
 	{
 		if (a->items[a->top] <= median)
 			push_b(a, b, 1);
 		reverse_rotate_stack(a, 1, 'a');
 	}
-	three_numbers(a);
-	if (b->top == 0)
-		push_a(a, b, 1);
-	else
-	{
-		if (b->items[0] > b->items[1])
-			swapping(b, 1, 'b');
-		while (b->top > -1)
-			push_a(a, b, 1);
-	}
-	// print_stacks(a, b);
+	// three_numbers(a);
+	// if (b->items[0] > b->items[1])
+		
+	print_stacks(a, b);
 }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
