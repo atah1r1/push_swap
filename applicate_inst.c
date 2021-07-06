@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:52:54 by atahiri           #+#    #+#             */
-/*   Updated: 2021/06/29 18:07:44 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/06 11:43:04 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ void	push_a(t_stack *a, t_stack *b, int print)
 void	push_b(t_stack *a, t_stack *b, int print)
 {
 	if (!is_empty(a))
+	{
 		push(b, a->items[a->top]);
-	pop(a);
+		pop(a);
+	}
 	if (print == 1)
 		printf("pb\n");
 }
