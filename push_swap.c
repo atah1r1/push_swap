@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/06 14:39:38 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/07 19:17:13 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,19 +133,20 @@ void	five_numbers(t_stack *a, t_stack *b)
 		else
 			reverse_rotate_stack(a, 1, 'a');
 	}
+	print_stacks(a, b);
 	three_numbers(a);
-	// print_stacks(a, b);
-	if (b->top == 0)
-		push_a(a, b, 1);
-	else
-	{
-		if (b->items[b->top] < b->items[b->top - 1])
-		{
-			swapping(b, 1, 'b');
-		}
-		push_a(a, b, 1);
-		push_a(a, b, 1);
-	}
+	print_stacks(a, b);
+	// if (b->top == 0)
+	// 	push_a(a, b, 1);
+	// else
+	// {
+	// 	if (b->items[b->top] < b->items[b->top - 1])
+	// 	{
+	// 		swapping(b, 1, 'b');
+	// 	}
+	// 	push_a(a, b, 1);
+	// 	push_a(a, b, 1);
+	// }
 	// print_stacks(a, b);
 }
 
@@ -163,6 +164,7 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 		else
 		{
 			three_numbers(a);
+			// print_stacks(a, b);
 		}
 	}
 	else

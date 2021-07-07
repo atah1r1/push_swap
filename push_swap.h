@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/06/29 18:05:02 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/07 19:16:44 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,12 @@ void		check_stacks(t_stack *a, t_stack *b);
 int			is_sorted(t_stack *a, t_stack *b);
 //
 #endif
+
+
+// 5
+// 52
+// 1
+
+// 1
+// 5
+// 52
