@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/07 19:17:13 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/08 14:13:23 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 void	print_stacks(t_stack *a, t_stack *b)
 {
 	int i;
+	(void)b;
 
-	i = -1;
+	i = a->top;
 	printf("STACK A ---> ");
-	while (++i <= a->top)
-		printf("%d ", a->items[i]);
+	while (i > -1)
+		printf("%d ", a->items[i--]);
 	printf("\nSTACK B ---> ");
-	i = -1;
-	while (++i <= b->top)
-		printf("%d ", b->items[i]);
+	i = b->top;
+	while (i > -1)
+		printf("%d ", b->items[i--]);
 	printf("\n");
 }
 
@@ -66,31 +67,39 @@ int	*sort_array(int *array, int len)
 	return (new_array);
 }
 
-void	three_numbers(t_stack *a)
+void	three_numbers(t_stack *a, t_stack *b)
 {
 	int	*sorted;
 	int	big_nb;
 	int	small_nb;
+	(void)b;
 
 	sorted = sort_array(a->items, a->top);
 	small_nb = sorted[0];
 	big_nb = sorted[2];
-	if (a->items[0] == big_nb && a->items[1] == small_nb)
+	// printf("iterm0 == %d\n item1 == %d\n", a->items[0], a->items[1]);
+	if (a->items[2] == big_nb && a->items[1] == small_nb)
+	{
+		rotate_stack(a, 1, 'a');
+	}
+	else if (a->items[1] == big_nb && a->items[2] == small_nb)
+	{
 		swapping(a, 1, 'a');
+		rotate_stack(a, 1, 'a');
+	}
 	else if (a->items[2] == big_nb && a->items[0] == small_nb)
 	{
+		rotate_stack(a, 1, 'a');
 		swapping(a, 1, 'a');
+	}
+	else if (a->items[1] == big_nb && a->items[0] == small_nb)
+	{
 		reverse_rotate_stack(a, 1, 'a');
 	}
-	else if (a->items[2] == big_nb && a->items[1] == small_nb)
-		rotate_stack(a, 1, 'a');
-	else if (a->items[2] == small_nb && a->items[1] == big_nb)
+	else if (a->items[0] == big_nb && a->items[1] == small_nb)
 	{
 		swapping(a, 1, 'a');
-		rotate_stack(a, 1, 'a');
 	}
-	else if (a->items[0] == small_nb && a->items[1] == big_nb)
-		reverse_rotate_stack(a, 1, 'a');
 	free(sorted);
 }
 
@@ -114,39 +123,97 @@ int		get_median(t_stack *a)
 	return (median);
 }
 
-void	five_numbers(t_stack *a, t_stack *b)
+int		find_small_nb(t_stack *a)
 {
-	int	median;
-	int	i;
+	int i = -1;
+	int b = a->items[0];
+	while(++i < a->maxsize)
+	{
+		if(a->items[i] <= b)
+			b = a->items[i];
+	} 
+	return (b);
+}
 
-
-	i = -1;
-	median = get_median(a);
-	// printf("TOP === %d\n", a->items[a->top]);
-	// printf("MEDIANE === %d\n", median);
+int find_pos(t_stack *a,int sm)
+{
+	int i = -1;
 	while (++i < a->maxsize)
 	{
-		if (a->items[a->top] < median)
-		{
-			push_b(a, b, 1);
-		}
-		else
-			reverse_rotate_stack(a, 1, 'a');
+		if (a->items[i] == sm)
+			return (i);
 	}
+	return (-1);
+}
+
+void	checkandpb(t_stack *a,t_stack *b)
+{
+	int small_nb = find_small_nb(a);
+	int find = find_pos(a,small_nb);
+	printf("%d\n", find);
+	printf("TOP == %d\n", a->top);
+	// sleep(5);
+	if (find > 2)
+	{
+		while(find != a->top)
+		{
+			rotate_stack(a, 1, 'a');
+			find--;
+		}
+	}
+	else
+	{
+		while(find != a->top)
+		{
+			reverse_rotate_stack(a, 1, 'a');
+			find--;
+			if (find == -2)
+				find = a->top;
+		}	
+	}
+	push_b(a, b, 1);
+	// print_stacks(a, b);
+}
+
+void	five_numbers(t_stack *a, t_stack *b)
+{
+	// int	median;
+	// int	i;
+	(void)b;
+
+	checkandpb(a,b);
+	checkandpb(a,b);
+	
+	// i = -1;
+	
+	// printf("%d\n", find);
+	// median = get_median(a);
+	// printf("TOP === %d\n", a->items[a->top]);
+	// printf("MEDIANE === %d\n", median);
+	// while (++i < a->maxsize)
+	// {
+	// 	if (a->items[a->top] < median)
+	// 	{
+	// 		printf("TOP == %d\n", a->items[a->top]);
+	// 		push_b(a, b, 1);
+	// 	}
+	// 	else
+	// 		rotate_stack(a, 1, 'a');
+	// }
 	print_stacks(a, b);
-	three_numbers(a);
-	print_stacks(a, b);
+	// three_numbers(a, b);
 	// if (b->top == 0)
 	// 	push_a(a, b, 1);
 	// else
 	// {
-	// 	if (b->items[b->top] < b->items[b->top - 1])
-	// 	{
-	// 		swapping(b, 1, 'b');
-	// 	}
-	// 	push_a(a, b, 1);
-	// 	push_a(a, b, 1);
+		// if (b->items[b->top] < b->items[b->top - 1])
+		// {
+		// 	swapping(b, 1, 'b');
+		// }
+		// push_a(a, b, 1);
+		// push_a(a, b, 1);
 	// }
+	// print_stacks(a, b);
 	// print_stacks(a, b);
 }
 
@@ -163,7 +230,7 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 		}
 		else
 		{
-			three_numbers(a);
+			three_numbers(a, b);
 			// print_stacks(a, b);
 		}
 	}
@@ -207,6 +274,10 @@ int     main(int argc, char **argv)
 	// 	printf("%d ", b->items[i++]);
 	// printf("\n");
 	else
+	{
 		sorting(a, b, argc);
+		// print_stacks(a, b);
+	}
+		
     return 0;
 }
