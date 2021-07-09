@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/08 14:13:23 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/09 12:34:26 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,15 @@ int	*sort_array(int *array, int len)
 	return (new_array);
 }
 
-void	three_numbers(t_stack *a, t_stack *b)
+void	three_numbers(t_stack *a)
 {
 	int	*sorted;
 	int	big_nb;
 	int	small_nb;
-	(void)b;
 
 	sorted = sort_array(a->items, a->top);
 	small_nb = sorted[0];
 	big_nb = sorted[2];
-	// printf("iterm0 == %d\n item1 == %d\n", a->items[0], a->items[1]);
 	if (a->items[2] == big_nb && a->items[1] == small_nb)
 	{
 		rotate_stack(a, 1, 'a');
@@ -127,9 +125,9 @@ int		find_small_nb(t_stack *a)
 {
 	int i = -1;
 	int b = a->items[0];
-	while(++i < a->maxsize)
+	while(++i <= a->top)
 	{
-		if(a->items[i] <= b)
+		if(a->items[i] < b)
 			b = a->items[i];
 	} 
 	return (b);
@@ -138,7 +136,7 @@ int		find_small_nb(t_stack *a)
 int find_pos(t_stack *a,int sm)
 {
 	int i = -1;
-	while (++i < a->maxsize)
+	while (++i <= a->top)
 	{
 		if (a->items[i] == sm)
 			return (i);
@@ -149,79 +147,55 @@ int find_pos(t_stack *a,int sm)
 void	checkandpb(t_stack *a,t_stack *b)
 {
 	int small_nb = find_small_nb(a);
+	// printf("SMALL == %d\n", small_nb);
 	int find = find_pos(a,small_nb);
-	printf("%d\n", find);
-	printf("TOP == %d\n", a->top);
+	// printf("FIND %d\n", find);
+	// printf("TOP == %d\n", a->top);
 	// sleep(5);
-	if (find > 2)
+	if (find < a->top)
 	{
-		while(find != a->top)
+		// printf("TOP == %d\n", a->top);
+		// printf("POS == %d\n", find);
+		while(find++ < a->top)
 		{
 			rotate_stack(a, 1, 'a');
-			find--;
+			// find;
 		}
 	}
-	else
-	{
-		while(find != a->top)
-		{
-			reverse_rotate_stack(a, 1, 'a');
-			find--;
-			if (find == -2)
-				find = a->top;
-		}	
-	}
+	// else
+	// {
+	// 	while(find != a->top)
+	// 	{
+	// 		reverse_rotate_stack(a, 1, 'a');
+	// 		find--;
+	// 		if (find == -2)
+	// 			find = a->top;
+	// 	}	
+	// }
 	push_b(a, b, 1);
 	// print_stacks(a, b);
 }
 
 void	five_numbers(t_stack *a, t_stack *b)
 {
-	// int	median;
-	// int	i;
-	(void)b;
-
-	checkandpb(a,b);
-	checkandpb(a,b);
-	
-	// i = -1;
-	
-	// printf("%d\n", find);
-	// median = get_median(a);
-	// printf("TOP === %d\n", a->items[a->top]);
-	// printf("MEDIANE === %d\n", median);
-	// while (++i < a->maxsize)
-	// {
-	// 	if (a->items[a->top] < median)
-	// 	{
-	// 		printf("TOP == %d\n", a->items[a->top]);
-	// 		push_b(a, b, 1);
-	// 	}
-	// 	else
-	// 		rotate_stack(a, 1, 'a');
-	// }
-	print_stacks(a, b);
-	// three_numbers(a, b);
-	// if (b->top == 0)
-	// 	push_a(a, b, 1);
-	// else
-	// {
-		// if (b->items[b->top] < b->items[b->top - 1])
-		// {
-		// 	swapping(b, 1, 'b');
-		// }
-		// push_a(a, b, 1);
-		// push_a(a, b, 1);
-	// }
-	// print_stacks(a, b);
-	// print_stacks(a, b);
+	if (a->top == 4)
+	{
+		checkandpb(a,b);
+		checkandpb(a,b);
+		three_numbers(a);
+		push_a(a, b, 1);
+		push_a(a, b, 1);
+	} else {
+		checkandpb(a,b);
+		three_numbers(a);
+		
+		push_a(a, b, 1);
+		push_a(a, b, 1);
+	}
 }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
 {
-	(void)b;
-	// printf("ARGC ==== %d\n", argc);
-	// printf("TOP ==== %d\n", a->top);
 	if (argc <= 4)
 	{
 		if (a->top == 1)
@@ -230,7 +204,7 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 		}
 		else
 		{
-			three_numbers(a, b);
+			three_numbers(a);
 			// print_stacks(a, b);
 		}
 	}
