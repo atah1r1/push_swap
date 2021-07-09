@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/09 12:34:26 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/09 19:05:46 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,19 @@ void	five_numbers(t_stack *a, t_stack *b)
 	}
 }
 
+void	one_hundred_number(t_stack *a, t_stack *b, int len)
+{
+	(void)len;
+	(void)b;
+	int		*sorted = sort_array(a->items, a->top);
+	int i = -1;
+	while (++i < len)
+	{
+		printf("%d ", sorted[i]);
+	}
+	// print_stacks(a, b);
+}
+
 void	sorting(t_stack *a, t_stack *b, int argc)
 {
 	if (argc <= 4)
@@ -205,13 +218,15 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 		else
 		{
 			three_numbers(a);
-			// print_stacks(a, b);
 		}
 	}
-	else
+	else if (argc <= 6)
 	{
 		five_numbers(a, b);
-		// print_stacks(a, b);
+	}
+	else if (argc <= 101)
+	{
+		one_hundred_number(a, b, argc - 1);
 	}
 }
 
