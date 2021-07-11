@@ -6,7 +6,7 @@
 #    By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 12:25:49 by atahiri           #+#    #+#              #
-#    Updated: 2021/06/18 02:32:27 by atahiri          ###   ########.fr        #
+#    Updated: 2021/07/11 11:15:11 by atahiri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRC2=	push_swap.c\
 		applicate_inst.c \
 		exec_operations.c\
 		check_stack.c\
+		chunks_algo.c\
 
 OBJ1=	$(SRC1:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/09 19:05:46 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/11 11:17:26 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,33 +147,13 @@ int find_pos(t_stack *a,int sm)
 void	checkandpb(t_stack *a,t_stack *b)
 {
 	int small_nb = find_small_nb(a);
-	// printf("SMALL == %d\n", small_nb);
 	int find = find_pos(a,small_nb);
-	// printf("FIND %d\n", find);
-	// printf("TOP == %d\n", a->top);
-	// sleep(5);
 	if (find < a->top)
 	{
-		// printf("TOP == %d\n", a->top);
-		// printf("POS == %d\n", find);
 		while(find++ < a->top)
-		{
 			rotate_stack(a, 1, 'a');
-			// find;
-		}
 	}
-	// else
-	// {
-	// 	while(find != a->top)
-	// 	{
-	// 		reverse_rotate_stack(a, 1, 'a');
-	// 		find--;
-	// 		if (find == -2)
-	// 			find = a->top;
-	// 	}	
-	// }
 	push_b(a, b, 1);
-	// print_stacks(a, b);
 }
 
 void	five_numbers(t_stack *a, t_stack *b)
@@ -194,17 +174,43 @@ void	five_numbers(t_stack *a, t_stack *b)
 	}
 }
 
-void	one_hundred_number(t_stack *a, t_stack *b, int len)
+int	get_element_index(t_stack *stack, int el)
 {
-	(void)len;
-	(void)b;
-	int		*sorted = sort_array(a->items, a->top);
-	int i = -1;
-	while (++i < len)
+	int	i;
+
+	i = -1;
+	while (++i < stack->maxsize)
 	{
-		printf("%d ", sorted[i]);
+		if (stack->items[i] == el)
+			return (i);
 	}
-	// print_stacks(a, b);
+	return (0);
+}
+
+void	one_hundred_number(t_stack *a, t_stack *b, int len, int step)
+{
+	int	bigger_index;
+	int	*sorted;
+
+	sorted = sort_array(a->items, a->top);
+	if (len < step)
+		chunk(a, b, sorted[0], sorted[len - 1]);
+	else
+		split_chunks(a, b, len, step);
+	sorted = sort_array(b->items, b->top);
+	bigger_index = 0;
+	while (b->top > -1)
+	{
+		bigger_index = get_element_index(b, sorted[b->top]);
+		if (bigger_index < (int)(b->top / 2))
+			while (bigger_index-- >= 0)
+				reverse_rotate_stack(b, 1, 'b');
+		else
+			while (bigger_index++ < b->top)
+				rotate_stack(b, 1, 'b');
+		push_a(a, b, 1);
+	}
+	free(sorted);
 }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
@@ -226,7 +232,7 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 	}
 	else if (argc <= 101)
 	{
-		one_hundred_number(a, b, argc - 1);
+		one_hundred_number(a, b, argc - 1, 20);
 	}
 }
 
