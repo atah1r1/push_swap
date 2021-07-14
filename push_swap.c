@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/11 11:17:26 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/14 10:31:17 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,44 +174,12 @@ void	five_numbers(t_stack *a, t_stack *b)
 	}
 }
 
-int	get_element_index(t_stack *stack, int el)
-{
-	int	i;
+// void	one_hundred_number(t_stack *a, t_stack *b, int len, int step)
+// {
+// 	int	*sorted;
 
-	i = -1;
-	while (++i < stack->maxsize)
-	{
-		if (stack->items[i] == el)
-			return (i);
-	}
-	return (0);
-}
-
-void	one_hundred_number(t_stack *a, t_stack *b, int len, int step)
-{
-	int	bigger_index;
-	int	*sorted;
-
-	sorted = sort_array(a->items, a->top);
-	if (len < step)
-		chunk(a, b, sorted[0], sorted[len - 1]);
-	else
-		split_chunks(a, b, len, step);
-	sorted = sort_array(b->items, b->top);
-	bigger_index = 0;
-	while (b->top > -1)
-	{
-		bigger_index = get_element_index(b, sorted[b->top]);
-		if (bigger_index < (int)(b->top / 2))
-			while (bigger_index-- >= 0)
-				reverse_rotate_stack(b, 1, 'b');
-		else
-			while (bigger_index++ < b->top)
-				rotate_stack(b, 1, 'b');
-		push_a(a, b, 1);
-	}
-	free(sorted);
-}
+// 	sorted = sort_array(a->items, a->top);
+// }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
 {

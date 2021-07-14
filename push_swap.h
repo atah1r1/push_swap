@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:34:41 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/11 11:15:53 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/14 10:30:30 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,5 @@ int			is_sorted(t_stack *a, t_stack *b);
 //
 
 
-
-void	split_chunks(t_stack *a, t_stack *b, int len, int step);
-void	chunk(t_stack *a, t_stack *b, int start, int end);
-void	choose_right_operation(t_stack *stack, int top_index, int bottom_index);
-int		scan_stack_from_bottom(t_stack *stack, int start, int end);
-int		scan_stack_from_top(t_stack *stack, int start, int end);
 int		*sort_array(int *array, int len);
 #endif
