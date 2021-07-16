@@ -181,14 +181,14 @@ void	chunk(t_stack *a, t_stack *b, int start, int end)
 	// int	*sorted;
 	int i = -1;
 
-	while (++i <= a->maxsize)
+	while (++i < a->maxsize)
 	{
 		if (a->items[i] >= start && a->items[i] <= end)
 		{
-			push_b(a, b, 0);
+			push_b(a, b, 1);
 		}
 	}
-	print_stacks(a, b);
+	// print_stacks(a, b);
 	
 }
 
@@ -215,13 +215,13 @@ void	logic(t_stack *a, t_stack *b, int size, int step)
 			{
 				start += step;
 				end = size - 1;
-				printf("START ==== %d\n END === %d\n", start, end);
+				// printf("START ==== %d\n END === %d\n", start, end);
 			}
 			else 
 			{
 				start += step;
 				end = start + step - 1;
-				printf("START ==== %d\n END === %d\n", start, end);
+				// printf("START ==== %d\n END === %d\n", start, end);
 			}
 		}
 	}
