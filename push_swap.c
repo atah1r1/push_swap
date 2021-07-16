@@ -17,15 +17,16 @@ void	print_stacks(t_stack *a, t_stack *b)
 	int i;
 	(void)b;
 
-	i = a->top;
-	printf("STACK A ---> ");
-	while (i > -1)
-		printf("%d ", a->items[i--]);
-	printf("\nSTACK B ---> ");
-	i = b->top;
-	while (i > -1)
-		printf("%d ", b->items[i--]);
-	printf("\n");
+	i = - 1;
+    printf("\nSTACK A | ");
+    while (++i <= a->top)
+        printf("%d ", a->items[i]);
+    printf("\n");
+    printf("STACK B | ");
+    i = - 1;
+    while (++i <= b->top)
+        printf("%d ", b->items[i]);
+    printf("\n\n");
 }
 
 int	*copy(int *array, int len)
@@ -103,23 +104,23 @@ void	three_numbers(t_stack *a)
 
 
 
-int		get_median(t_stack *a)
-{
-	int		median = 0;
-	int		*sorted;
+// int		get_median(t_stack *a)
+// {
+// 	int		median = 0;
+// 	int		*sorted;
 
-	sorted = sort_array(a->items, a->top);
-	if (a->maxsize == 5)
-	{
-		median = sorted[2];
-	}
-	else if (a->maxsize == 4)
-	{
-		median = sorted[1];
-	}
-	free(sorted);
-	return (median);
-}
+// 	sorted = sort_array(a->items, a->top);
+// 	if (a->maxsize == 5)
+// 	{
+// 		median = sorted[2];
+// 	}
+// 	else if (a->maxsize == 4)
+// 	{
+// 		median = sorted[1];
+// 	}
+// 	free(sorted);
+// 	return (median);
+// }
 
 int		find_small_nb(t_stack *a)
 {
@@ -174,12 +175,57 @@ void	five_numbers(t_stack *a, t_stack *b)
 	}
 }
 
-// void	one_hundred_number(t_stack *a, t_stack *b, int len, int step)
-// {
-// 	int	*sorted;
+void	chunk(t_stack *a, t_stack *b, int start, int end)
+{
+	(void)b;
+	// int	*sorted;
+	int i = -1;
 
-// 	sorted = sort_array(a->items, a->top);
-// }
+	while (++i <= a->maxsize)
+	{
+		if (a->items[i] >= start && a->items[i] <= end)
+		{
+			push_b(a, b, 0);
+		}
+	}
+	print_stacks(a, b);
+	
+}
+
+void	logic(t_stack *a, t_stack *b, int size, int step)
+{
+	int start;
+	int end;
+	int *sorted = sort_array(a->items, a->top);
+
+	start = 0;
+	end = step - 1;
+
+	if (size <= step)
+	{
+		chunk(a, b, start, size - 1);
+	}
+	else 
+	{
+		// printf("%d\n", size);
+		while (start < size)
+		{
+			chunk(a, b, sorted[start], sorted[end]);
+			if (end + step - 1 > size)
+			{
+				start += step;
+				end = size - 1;
+				printf("START ==== %d\n END === %d\n", start, end);
+			}
+			else 
+			{
+				start += step;
+				end = start + step - 1;
+				printf("START ==== %d\n END === %d\n", start, end);
+			}
+		}
+	}
+}
 
 void	sorting(t_stack *a, t_stack *b, int argc)
 {
@@ -200,7 +246,8 @@ void	sorting(t_stack *a, t_stack *b, int argc)
 	}
 	else if (argc <= 101)
 	{
-		one_hundred_number(a, b, argc - 1, 20);
+		logic(a, b, argc - 1, 20);
+		// print_stacks(a,b);
 	}
 }
 
