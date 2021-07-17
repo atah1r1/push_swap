@@ -192,6 +192,20 @@ void	chunk(t_stack *a, t_stack *b, int start, int end)
 	
 }
 
+
+int	get_element_index(t_stack *stack, int el)
+{
+	int	i;
+
+	i = -1;
+	while (++i < stack->maxsize)
+	{
+		if (stack->items[i] == el)
+			return (i);
+	}
+	return (0);
+}
+
 void	logic(t_stack *a, t_stack *b, int size, int step)
 {
 	int start;
@@ -224,6 +238,18 @@ void	logic(t_stack *a, t_stack *b, int size, int step)
 				// printf("START ==== %d\n END === %d\n", start, end);
 			}
 		}
+	}
+	// printf("----------\n");
+	while (b->top > -1)
+	{
+		int big_index = get_element_index(b, sorted[b->top]);
+		if (big_index < (int)(b->top / 2))
+			while (big_index-- >= 0)
+				reverse_rotate_stack(b, 1, 'b');
+		else
+			while (big_index++ < b->top)
+				rotate_stack(b, 1, 'b');
+		push_a(a, b, 1);
 	}
 }
 
