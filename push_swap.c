@@ -6,7 +6,7 @@
 /*   By: atahiri <atahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 10:50:53 by atahiri           #+#    #+#             */
-/*   Updated: 2021/07/14 10:31:17 by atahiri          ###   ########.fr       */
+/*   Updated: 2021/07/17 23:16:17 by atahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,24 +186,11 @@ void	chunk(t_stack *a, t_stack *b, int start, int end)
 		if (a->items[i] >= start && a->items[i] <= end)
 		{
 			push_b(a, b, 1);
+			// print_stacks(a, b);
 		}
 	}
 	// print_stacks(a, b);
 	
-}
-
-
-int	get_element_index(t_stack *stack, int el)
-{
-	int	i;
-
-	i = -1;
-	while (++i < stack->maxsize)
-	{
-		if (stack->items[i] == el)
-			return (i);
-	}
-	return (0);
 }
 
 void	logic(t_stack *a, t_stack *b, int size, int step)
@@ -240,17 +227,6 @@ void	logic(t_stack *a, t_stack *b, int size, int step)
 		}
 	}
 	// printf("----------\n");
-	while (b->top > -1)
-	{
-		int big_index = get_element_index(b, sorted[b->top]);
-		if (big_index < (int)(b->top / 2))
-			while (big_index-- >= 0)
-				reverse_rotate_stack(b, 1, 'b');
-		else
-			while (big_index++ < b->top)
-				rotate_stack(b, 1, 'b');
-		push_a(a, b, 1);
-	}
 }
 
 void	sorting(t_stack *a, t_stack *b, int argc)
